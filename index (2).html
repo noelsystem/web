@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Griffins - Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#0f172a] min-h-screen flex flex-col justify-between text-gray-300">
+  <div class="p-5 max-w-md mx-auto w-full">
+    <div class="bg-[#111827] rounded-xl p-6 space-y-4">
+      <div class="flex justify-between items-start">
+        <h1 class="text-sky-500 text-xl font-semibold flex items-center gap-2">
+          <i class="fas fa-globe"></i> Savesta Website
+        </h1>
+        <button
+          class="bg-red-600 text-white text-sm font-semibold px-4 py-1 rounded-md"
+          type="button"
+        >
+          Logout
+        </button>
+      </div>
+      <input
+        type="text"
+        placeholder="Masukkan Nomor Negara (+62, +1, dll)"
+        class="w-full rounded-md border-2 border-yellow-400 bg-[#111827] text-gray-400 placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      />
+      <div class="flex justify-center gap-4">
+        <button
+          class="bg-sky-600 text-white rounded-md px-3 py-1.5 text-sm font-medium"
+          type="button"
+        >
+          Android
+        </button>
+        <button
+          class="bg-sky-600 text-white rounded-md px-3 py-1.5 text-sm font-medium"
+          type="button"
+        >
+          iPhone
+        </button>
+        <button
+          class="bg-sky-600 text-white rounded-md px-3 py-1.5 text-sm font-medium"
+          type="button"
+        >
+          Mention
+        </button>
+      </div>
+      <div class="text-center text-gray-200 text-sm font-semibold space-y-1">
+        <p>
+          <span class="font-bold">Status:</span> Server Aktif
+        </p>
+        <p>
+          <span class="font-bold">Info:</span> Selamat datang
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-[#111827] rounded-xl p-6 mt-6 text-gray-300 text-sm leading-relaxed">
+      <p class="font-semibold mb-2">Note:</p>
+      <p class="mb-4">
+        Fitur ini disediakan hanya untuk tujuan edukasi, riset, dan pengujian sistem internal.
+      </p>
+      <p class="mb-4">
+        Developer dan pihak penyedia sistem tidak bertanggung jawab atas segala bentuk penyalahgunaan.
+      </p>
+      <p class="mb-4">
+        Dilarang keras menggunakan tools ini untuk tindakan ilegal, merugikan pihak lain, atau melanggar ketentuan hukum yang berlaku.
+      </p>
+      <p>
+        Gunakan dengan bijak, etis, dan penuh tanggung jawab.
+      </p>
+    </div>
+  </div>
+
+  <footer class="text-center text-gray-500 text-xs py-4 select-none">
+    © Website By Pino developer
+  </footer>
+
+  <!-- Audio autoplay -->
+  <audio id="bg-audio" autoplay loop>
+    <source src="https://files.catbox.moe/f24r1s.MP3" type="audio/mpeg" />
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('bg-audio');
+    audio.volume = 1.0;
+
+    function tryPlayAudio() {
+      const playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Audio berhasil diputar
+          })
+          .catch(() => {
+            // Gagal, coba lagi setelah 1 detik
+            setTimeout(tryPlayAudio, 1000);
+          });
+      }
+    }
+
+    window.addEventListener('load', () => {
+      tryPlayAudio();
+    });
+  </script>
+</body>
+</html>
